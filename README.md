@@ -1,1 +1,0 @@
-# Scope-Full-Project-
