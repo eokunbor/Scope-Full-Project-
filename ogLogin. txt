@@ -1,0 +1,66 @@
+import { StyleSheet, View, Text, SafeAreaView, Pressable } from 'react-native'
+import {Link} from 'expo-router'
+import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react'
+
+
+
+const login = () => {
+  const handleSubmit = () => {
+    console.log("Login Pressed");
+}
+
+  return (
+    <LinearGradient
+    style={styles.gradientBack}
+    colors={["#50C6FF", "#4ABFFF","#40ADFF", "#297CFF", "#0F3EFF"]}
+    > 
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.text}>Login</Text>
+
+        <Pressable>
+        onPress={handleSubmit}
+        style={({pressed}) => [styles.btn, pressed && styles.btnPressed]}>
+          <Text style={{color: 'white'}}>Login</Text>
+        </Pressable>
+
+        <Link href="/signUp" style = {{textAlign:'center'}}>Don't Have an account? Sign Up</Link>
+    </SafeAreaView>
+
+    </LinearGradient>
+  )
+}
+
+export default login
+
+const styles = StyleSheet.create({
+    gradientBack:{
+      flex: 1,
+    },
+    container:{
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderRadius: 24,
+        padding: 24,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 12,
+        elevation: 5,
+    },
+    text:{
+        fontSize: 20,
+        textAlign: 'center'
+    },
+    btn:{
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10
+  },
+  btnPressed:{
+    opacity: 0.75
+
+  }
+})
