@@ -1,0 +1,47 @@
+import { StyleSheet, Text, View, Pressable } from 'react-native'
+import {Link} from 'expo-router'
+import React from 'react'
+
+const signUp = () => {
+    const handleSubmit = () => {
+    console.log("Sign Up Pressed");
+}
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}> Create an account</Text>
+
+      <Pressable 
+      onPress={handleSubmit}
+      style={({pressed}) => [styles.btn, pressed && styles.btnPressed]}>
+        <Text style={{color: 'white'}}>Sign Up</Text>
+      </Pressable>
+
+
+      <Link href="/login" style = {{textAlign:'center'}}>Have an account? Login</Link>
+    </View>
+  )
+}
+
+export default signUp
+
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    text:{
+        fontSize: 20,
+        textAlign: 'center'
+    },
+      btn:{
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10
+  },
+  btnPressed:{
+    opacity: 0.75
+
+  }
+})

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import { useFonts } from 'expo-font';
 import React from 'react'
 import {Link} from 'expo-router'
@@ -10,14 +10,9 @@ import { useEffect } from 'react';
 SplashScreen.preventAutoHideAsync();
 
 const splashLogin = () => {
-
-const handleSubmit = () => {
-    console.log("Get Started Pressed");
-}
-
   const [fontsLoaded] = useFonts({
-    'LeagueSpartan-Bold': require('../assets/fonts/LeagueSpartan-Bold.ttf'),
-    'LeagueSpartan-Regular': require('../assets/fonts/LeagueSpartan-Regular.ttf'),
+    'Nexa-Heavy': require('../assets/fonts/Nexa-Heavy.ttf'),
+    'ZabalDEMO-Light': require('../assets/fonts/ZabalDEMO-Light.otf'),
   });
 
   useEffect(() => {
@@ -34,21 +29,9 @@ const handleSubmit = () => {
     <View style={styles.container}>
       <Text style={styles.h1}>Welcome to Scope</Text>
       <Text style={styles.h2}>Scope out your path to wellness!</Text>
-
-
       <Image source={splashLoginImg} style={styles.Tester}/>
-
-
-      <Pressable 
-      onPress={handleSubmit}
-      style={({pressed}) => [styles.btn, pressed && styles.btnPressed]}>
-        <Text style={{color: 'white'}}>Get Started</Text>
-      </Pressable>
-
-
-      <Link href="/(auth)/login">Login</Link>
-      <Link href="/(auth)/signUp">Sign Up</Link>
-        <Link href="/mainProfile">Main Profile</Link>
+      <Link href="/login">Login</Link>
+      <Link href="/signUp">Sign Up</Link>
     </View>
   )
 }
@@ -62,27 +45,17 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   h1:{
-    fontFamily: 'LeagueSpartan-Bold',  // Use custom font
-    fontSize: 40,
+    fontFamily: 'Nexa-Heavy',  // Use custom font
+    fontSize: 30,
     textAlign: 'center'
   },
   h2:{
-    fontFamily: 'LeagueSpartan-Regular',  // Use custom font
+    fontFamily: 'ZabalDEMO-Light',  // Use custom font
     fontSize: 20,
     marginBottom: 40
   },
   Tester:{
     width: 330,
     height: 403
-  },
-  btn:{
-    backgroundColor: 'blue',
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 10
-  },
-  btnPressed:{
-    opacity: 0.75
-
   }
 })
